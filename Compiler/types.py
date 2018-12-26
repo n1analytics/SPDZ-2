@@ -1811,6 +1811,10 @@ class cfix(_number):
         cint_values = map(cfix_to_cint, values)
         writesocketc(client_id, message_type, *cint_values)
 
+    @classmethod
+    def malloc(cls, size):
+        return program.malloc(size, cls)
+    
     @vectorize_init
     def __init__(self, v=None, size=None):
         f = self.f
