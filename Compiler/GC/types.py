@@ -1,5 +1,5 @@
 from Compiler.types import MemValue, read_mem_value, regint, Array, cint
-from Compiler.types import _bitint, _number, _fix, _structure, _bit, _vec, sint
+from Compiler.types import _bitint, _number, _fix, _structure, _register, _bit, _vec, sint
 from Compiler.program import Tape, Program
 from Compiler.exceptions import *
 from Compiler import util, oram, floatingpoint, library
@@ -88,11 +88,18 @@ class bits(Tape.Register, _structure, _bit):
         if mem_type == 'sd':
             return cls.load_dynamic_mem(address)
         else:
+            is_constant = util.is_constant(address)
+            if isinstance(address, _register):
+                address = _register._expand_address(address,
+                        instructions_base.get_global_vector_size())
             for i in range(res.size):
-                cls.load_inst[util.is_constant(address)](res[i], address + i)
+                cls.load_inst[is_constant](res[i], address + i)
             return res
     def store_in_mem(self, address):
-        self.store_inst[isinstance(address, int)](self, address)
+        is_int = isinstance(address, int)
+        if isinstance(address, _register):
+            address = _register._expand_address(address, self.n)
+        self.store_inst[is_int](self, address)
     def __init__(self, value=None, n=None, size=None):
         if size != 1 and size is not None:
             raise Exception('invalid size for bit type: %s' % size)

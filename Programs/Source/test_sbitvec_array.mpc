@@ -1,0 +1,10 @@
+sbv64 = sbitvec.get_type(64)
+
+a = Array(4, sbv64)
+
+a[0] = sbv64(1)
+b = a[0]
+
+a[cint(0)] = sbv64(1)
+b = a[cint(0)]
+
