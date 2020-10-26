@@ -52,6 +52,9 @@ endif
 OS := $(shell uname -s)
 ifeq ($(OS), Linux)
 LDLIBS += -lrt
+ifeq ($(USE_NTL),1)
+LDLIBS += -lgmp
+endif
 endif
 
 ifeq ($(OS), Darwin)
