@@ -25,7 +25,7 @@ copyright = u'2020, Data61'
 author = u'Marcel Keller'
 
 # The short X.Y version
-version = u''
+version = u'0.1'
 # The full version, including alpha/beta/rc tags
 release = u''
 

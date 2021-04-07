@@ -1,10 +1,8 @@
-Welcome to MP-SPDZ's documentation!
+欢迎阅读MP-SPDZ中文文档!
 ===================================
 
-This documentation provides a reference to the most important
-high-level functionality provided by the MP-SPDZ compiler. For a
-tutorial and documentation on how to run programs, the
-implemented protocols etc. see https://github.com/data61/MP-SPDZ.
+本文档展示了MP-SPDZ编译器提供的最重要的高级功能参考. 有关如何运行程序,
+已实现协议的教程和文档等事项, 请参见原文https://github.com/data61/MP-SPDZ.
 
 Compilation process
 -------------------
