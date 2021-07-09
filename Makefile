@@ -259,7 +259,6 @@ Programs/Circuits:
 mpir-setup:
 	git submodule update --init mpir
 	cd mpir; \
-	autoreconf -i; \
 	autoreconf -i
 	- $(MAKE) -C mpir clean
 
