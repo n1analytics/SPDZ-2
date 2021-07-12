@@ -4980,6 +4980,7 @@ class SubMultiArray(object):
         assert len(indices) == len(self.sizes)
         size = 1
         base = 0
+        skip = 1
         has_glob = False
         last_was_glob = False
         for i, x in enumerate(indices):
